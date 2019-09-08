@@ -4,7 +4,6 @@ services:
 env:
   global:
   - REGISTRY_USER=dlin714
-  - REGISTRY_PASS=1hZrFnxN5ptKR4sau5Vfh/zT/FAa/c4FNCcE9Fm+q52RUOFPXUZnrEF2zXGAlbuBO+BxkE+RNNNce1jM/bPitwbSHNypMvSJG3kbMqjkl2neBTO0kArzMzgWFCVKDG26R2HtUGFiKmyPSQ1VzMXm7jZZRB5g3tZot0ds93Bltn5q30xLZvj0Xbm6dJtDWnEriQ4icO+oBeKeL24tXXrIEMsHPyOnGWkZPqOGFlZzZ9KTA7TcLzPhq3IxKdQzCsfh+I0L1pY/8Mw4gkpZhfnZzXx9magkIQT1pY1vWhOl+HBks7ukAIpbSKLAhj3mChb10uEdqRe7VLKvAFy+dmBRqBeYtNCs98+W1fBgEW9nVhboYNVEO9hji5oUOOXveJLpe1A2xx49bp7XzI42CeUEBSsSiKF2KHwJs5ap9omvSLH5bAmYLlaLBHYeeemfyWLZoVsWeeYU+aNAb+YMsElfqUgkCP3/HgxzhioW2/Yu/HlDtpyvMxBm/co3Hssp/zfeqEP2JdQ2kajKpWfJCwTOm8U2ScK8+lsRryui1kH6Bu72S/7gwpvn1eYVxIqZE2/Oj/8XYti/kR/HAYCDF6rIcSvlzYwLMkQ1rZIEmtjdPFaaPEqKkzM/icVQg5MebKZeRyj6mjEWAnw/MYFyicJgqLQKXVUqMrr5vHubCTFZOGo=
   - secret: somewhere on desk or backpack
 script:
 - docker build --tag dlin714/sphinxtravisdockerimage .
