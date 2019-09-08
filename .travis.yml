@@ -1,24 +1,20 @@
 sudo: required
 services:
- - docker
+- docker
 env:
- global:
-   - REGISTRY_USER=dlin714
-   - REGISTRY_PASS="Zv3G7jlqFcBT9qc/fR+luCCu9yzOE9DU5g3tcPGfuJGFzcvY9Gqmg5hOR/VMUv5oSggJ6ltuO7CjYQXL1e44wsYhWmpNYV2oKW+3I9ckL9MhXc0piha1uPoYQkcXGU9OMNMELq0sLHf2kSl3lUp41SQboJQFBH6FDYR9Rt71WhmRsTqzKjgo5I5IyjJfWG0SD5CuCLiCEhK96iKRAREkgHObzCDJtkXd25kxVVB3PhkRFizHRV9z5HaKk3cUFOR4c07Ao16ZzSsCY08x5Qwfqw2yeAAS+zApRP/ag73r2Xq1F185pnMgqugJVlIyHTjFF5CC2gRGr0321K7oxMGk6hilhv/QZqqdodYWnKJgeIxJqoWu5w5B6OEygTVKxGgoljIhAMKNvRQu4cnEtpBGtp4X4VFeXkgE7tTLZ+3LYUru1Bm1om07qn5rWDEPd4HTPuPrYRRytTbTZOH5/eqaBribIy15lRTfD4taOut5fbbU8way0N86U+LFtYNORFpvCrkz+QsynI1S9DiV5/ab6Y4+3/9bE6ZWTZmQibMaHoG7phLUzsZcu0cl2k9iF9X1ZA8E4HzzEFGAW2EUZfN4MXmwoTdcMlp4lt6gpcMDIQ3/5y8TUYUaa73AoDyoP4XAurZ26fTxqwTsl2VX1uB6w1HpzXeRYjroEGMQs6y5xII="
-   - secret: "somewhere on desk or backpack"
-
-script: 
- - docker build --tag dlin714/sphinxtravisdockerimage .
- - docker run dlin714/sphinxtravisdockerimage
-
+  global:
+  - REGISTRY_USER=dlin714
+  - REGISTRY_PASS=AZ3hili8P6UboY+cSYQFZdMbMcjpEigR9iujS7nMQZAOZlpw9jOVh0/GuWQh7qZgS0G/4FAfcugpT5So6bP+zoipUBgiHzeyQokpVpqa8XS79HPBQdPKvCAPvozrfAv8GKiUCK2FK5JV1OzcU0CAu7mlHNvETfe9x3ORifI2sM4EWUfn3WPdpynA6Z0CGRHarkPUJ3cD3RByKXaS9IK/UFmBligqHxjJ7kiWYn69VJJevw3ROVJ2Lpjle1Qat6vXd8SoIDqKJO1YEwzzZYH+d68mOGl2xZhv6mZkRNRhq0/if3SAshgK9TGVaCvaN+sEEKil/7us7aXyFFUXSBbweclJnw6O3YAW0FJu8vOLcWVT2a7x2d6fKjk3yi9B2EmB5WbvPxR0n9Q5AndZu/UvjkkJaooWPpYwONysPLINOEa8YlBxg7B3Lg8LSR+Bpc4lVmXw5O2BuaCkUU3uUYRX1FuTF8+RRnpPiOys6oaQSfisq9lXUOw4pVuqNcHRyOPr589fsENgA2q2ovfp+vLsayzQ3/aLvEWBo4yNOWz+u8gG2bULhutaE5j5Z3wWOBe+vEbhoNJhzSLszrjFWwjMFcJ7IdV5Y6kYUUbCrJsqvpEISvgr8DaK64Yw0ZP8iJC3xgwo7v4WoDe5RySBWDcljTYD+mVYTw3N4KchNLGYOOI=
+  - secret: somewhere on desk or backpack
+script:
+- docker build --tag dlin714/sphinxtravisdockerimage .
+- docker run dlin714/sphinxtravisdockerimage
 after_script:
- - docker images
-
+- docker images
 before_deploy:
- - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
-
+- docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
- provider: script
- script: docker push dlin714/sphinxtravisdockerimage
- on:
-  branch: master
+  provider: script
+  script: docker push dlin714/sphinxtravisdockerimage
+  on:
+    branch: master
