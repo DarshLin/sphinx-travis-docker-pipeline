@@ -1,0 +1,15 @@
+sudo: required
+services:
+ - docker
+env:
+ global:
+   - REGISTRY_USER=dlin714
+   - REGISTRY_PASS=""
+   - secret: "somewhere on desk or backpack"
+
+script: 
+ - docker build --tag myimage .
+ - docker run myimage
+
+after_script:
+ - docker images
