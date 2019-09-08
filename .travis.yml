@@ -4,12 +4,21 @@ services:
 env:
  global:
    - REGISTRY_USER=dlin714
-   - REGISTRY_PASS=""
+   - REGISTRY_PASS="Zv3G7jlqFcBT9qc/fR+luCCu9yzOE9DU5g3tcPGfuJGFzcvY9Gqmg5hOR/VMUv5oSggJ6ltuO7CjYQXL1e44wsYhWmpNYV2oKW+3I9ckL9MhXc0piha1uPoYQkcXGU9OMNMELq0sLHf2kSl3lUp41SQboJQFBH6FDYR9Rt71WhmRsTqzKjgo5I5IyjJfWG0SD5CuCLiCEhK96iKRAREkgHObzCDJtkXd25kxVVB3PhkRFizHRV9z5HaKk3cUFOR4c07Ao16ZzSsCY08x5Qwfqw2yeAAS+zApRP/ag73r2Xq1F185pnMgqugJVlIyHTjFF5CC2gRGr0321K7oxMGk6hilhv/QZqqdodYWnKJgeIxJqoWu5w5B6OEygTVKxGgoljIhAMKNvRQu4cnEtpBGtp4X4VFeXkgE7tTLZ+3LYUru1Bm1om07qn5rWDEPd4HTPuPrYRRytTbTZOH5/eqaBribIy15lRTfD4taOut5fbbU8way0N86U+LFtYNORFpvCrkz+QsynI1S9DiV5/ab6Y4+3/9bE6ZWTZmQibMaHoG7phLUzsZcu0cl2k9iF9X1ZA8E4HzzEFGAW2EUZfN4MXmwoTdcMlp4lt6gpcMDIQ3/5y8TUYUaa73AoDyoP4XAurZ26fTxqwTsl2VX1uB6w1HpzXeRYjroEGMQs6y5xII="
    - secret: "somewhere on desk or backpack"
 
 script: 
- - docker build --tag myimage .
- - docker run myimage
+ - docker build --tag dlin714/sphinxtravisdockerimage .
+ - docker run dlin714/sphinxtravisdockerimage
 
 after_script:
  - docker images
+
+before_deploy:
+ = docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+
+deploy:
+ provider: script
+ script: docker push dlin714/sphinxtravisdockerimage
+ on:
+  branch: master
