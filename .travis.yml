@@ -9,12 +9,12 @@ env:
   - secure: TovJ13M60m2paEWRenKhxTVziHuoXYOEOuHyczyhf1oZPJUBIrxMLmV9TVwkUuGZTrotBdkUsSmBK0FkzGSV9jTuNa4xjljdkKixF3Llc/PWriODe6pTH45ETxa+Ewh0qHtgAOEf4LTtHiYNg2ITrwhow9VvZou4z1yreo/mQ7a8WgRmAHNZiKu4qbXdWpcx08q0zSTM8ZuReCar74Jp3ERAYLd3df6tKRiFbQLnvLONUoPbowF9wYh9ueil7Dqpa/VbHx8vpQQsVk+DdAXyVXSBbI/9gcFqzfvm7yrYAs3kOHDnmsVc5YbzOsLp7MZtV6k6eJnZnOvRoM/FKcWI7Yf446oKPzdbWUUIwdZES4m84QJa80ssVFlT5JXSz4I+rWynr601rhRlT1LyHX9FoCz/hXQo6g8oWGHIVN9kGAU/GzO0ktUysfwUDUIS0+3HYmsESY900p/8ZLxFBSbPjtmrHRv17kyNKWzs3VvlYqembYkAspxT2+JlYZGH4jjMWIRDLfsnQFvXO1QSZLvG/EaeUixzxapHUQU8LssALOFkorr76w9XoIetPtO502SHXf58x02Drh4JaXl/ApVRoHFHRH1Tq24pKm3tDPFRbpTdYm3NEzgM79YJqmA3D+eqhD+ZUclBskCixFFC1u0QUCJAcMN/unzBjpxJhgOFOL4=
   - secure: lxK+U2hmmTe8XcCrfKwIJnXSwPRoI9eKebdbUl/wHjsJ38XRGSaoKcI9/2OFbWSlR+3g1DDxCZArhNQEV5FrsUmlRzxHoMnOp6JTRvedLhNoTUxJCNi72Hdt4NjrF9X4e3uiHTIfO3D6UeJlPlKKaVrAM2JYK9nPJCiWHFGQ4We4Az3ZvM5gO5tRDFLOj1xmAxrhga0SiYq48Ln4/im7otGcEm+zOERk+55fAMAQl6J1Q/No2TJVUF3MLvkmVrdn7oi8PuzX93Cv3d1lhUejZq22eCVrhIc8vzngGKgTzSybLncJnP6/U+Q+tbbom587FgHt3CUHRbhDLx8O84YW4m0ua/Vf2U2xaAXfcy4+Wcu4LJqfLvOWKLq6GoVSUjNOl7F7fUTpnMRm+LsZtrjJwfaiFZ1hx+8K0H792NtSHpJ8XQJCvfQqFBPS2HmwwbeX4zacVbZt5uiNEyiv43ijcsaabOSTTaiZp0mbqW0BTq8OmKXHr09dqHNRilQVS423MmBQ8T0IY2lRTT1AqTycAUvrYys9AbPttw7Jf6jVn1+9IuZuVF3jISbH9H/lh4Pf4tyneTLTYTHdR+Tm5bUPAEXy8yAwKYdpaZdXO+UGhH8/AFkRSnZojmgQDb3sTfsa/Z1SuS68H9YfhVXKGAKyVfdPD6OIoNtFLzGJG4JgeW4=
 before_script:
-  - docker pull dlin714/sphinxtravisdockerimage || true
-  script:
-- docker build --pull --cache-from dlin714/sphinxtravisdockerimage --tag dlin714/sphinxtravisdockerimage .
-- docker run dlin714/sphinxtravisdockerimage
+ - docker pull dlin714/sphinxtravisdockerimage || true
+script:
+ - docker image build --pull --cache-from dlin714/sphinxtravisdockerimage --tag dlin714/sphinxtravisdockerimage .
+ - docker image run dlin714/sphinxtravisdockerimage
 after_script:
-- docker image ls
+ - docker image ls
 before_deploy:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 deploy:
