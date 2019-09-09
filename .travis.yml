@@ -1,3 +1,4 @@
+language: bash
 sudo: required
 services:
 - docker
@@ -13,7 +14,7 @@ script:
 after_script:
 - docker images
 before_deploy:
-- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
 deploy:
   provider: script
   script: docker push dlin714/sphinxtravisdockerimage
