@@ -12,7 +12,7 @@ before_script:
  - docker pull dlin714/sphinxtravisdockerimage || true
 script:
  - docker image build --pull --cache-from dlin714/sphinxtravisdockerimage --tag dlin714/sphinxtravisdockerimage .
- - docker image run dlin714/sphinxtravisdockerimage
+ - docker container run dlin714/sphinxtravisdockerimage
 after_script:
  - docker image ls
 before_deploy:
