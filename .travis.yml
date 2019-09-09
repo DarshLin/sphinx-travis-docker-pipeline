@@ -12,7 +12,7 @@ script:
 - docker build --tag dlin714/sphinxtravisdockerimage .
 - docker run dlin714/sphinxtravisdockerimage
 after_script:
-- docker images
+- docker images ls
 before_deploy:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 deploy:
